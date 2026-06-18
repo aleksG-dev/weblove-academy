@@ -139,25 +139,29 @@ export function Scramble({
     }
     const glyphs = '!<>-_\\/[]{}=+*^?#ABCDEFGHJKLMNPQRSTUVWXYZ0123456789';
     const chars = Array.from(text);
-    const settle = chars.map((_, i) => delay / 16 + i * 1.7 + Math.random() * 9);
-    let tick = 0;
+    const perChar = 45; // ms each character takes to "lock"
+    const total = delay + chars.length * perChar + 350;
+    const start = performance.now();
     let raf = 0;
 
-    const run = () => {
-      let done = true;
+    const tick = () => {
+      const elapsed = performance.now() - start;
+      if (elapsed >= total) {
+        setOut(text); // hard stop — always terminates
+        return;
+      }
+      const locked = (elapsed - delay) / perChar;
       const s = chars
         .map((ch, i) => {
           if (ch === ' ') return ' ';
-          if (tick >= settle[i]) return ch;
-          done = false;
+          if (i < locked) return ch;
           return glyphs[Math.floor(Math.random() * glyphs.length)];
         })
         .join('');
       setOut(s);
-      tick += 1;
-      if (!done) raf = requestAnimationFrame(run);
+      raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(run);
+    raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [text, delay]);
 
