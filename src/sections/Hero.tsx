@@ -30,7 +30,7 @@ export function Hero() {
         {/* boot line */}
         <div className="font-mono text-xs text-acid-dim sm:text-sm">
           <span className="text-faint">&gt;</span>{' '}
-          <Scramble text="initializing weblove.academy — 14 classrooms loaded" delay={150} className="text-acid" />
+          <Scramble text="booting arcademy.exe — 14 classrooms loaded" delay={150} className="text-acid" />
           <span className="ml-1 inline-block w-2 animate-blink text-acid">▌</span>
         </div>
 
@@ -41,7 +41,7 @@ export function Hero() {
           transition={{ delay: 0.3 }}
           className="mt-8 font-mono text-xs uppercase tracking-[0.24em] text-mute"
         >
-          [ Weblove · The Academy ]
+          [ Arcademy · by Aleks Szarycz ]
         </motion.p>
 
         <SplitText

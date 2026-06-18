@@ -14,8 +14,8 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
             <a href="#top" className="font-mono text-sm font-medium tracking-[0.1em]">
-              <span className="text-ink">WEBLOVE</span>
-              <span className="text-acid">.EXE</span>
+              <span className="text-ink">ARCADE</span>
+              <span className="text-acid">MY</span>
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-mute">
               A career, shaped like a game. Fourteen classrooms, hundreds of
@@ -49,7 +49,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-line pt-8 font-mono text-[11px] uppercase tracking-[0.12em] text-faint sm:flex-row sm:items-center">
-          <p>© {year} Weblove Academy · Rafael — Skool community only</p>
+          <p>© {year} Arcademy · Built by Aleks Szarycz</p>
           <div className="flex gap-6">
             <a href="#" className="transition-colors hover:text-acid">Privacy</a>
             <a href="#" className="transition-colors hover:text-acid">Terms</a>

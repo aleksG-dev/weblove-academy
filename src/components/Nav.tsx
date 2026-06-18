@@ -24,8 +24,8 @@ export function Nav() {
     >
       <nav className="mx-auto flex max-w-shell items-center justify-between px-6 py-4 sm:px-12">
         <a href="#top" data-cursor="grow" className="focus-ring font-mono text-sm font-medium tracking-[0.1em]">
-          <span className="text-ink">WEBLOVE</span>
-          <span className="text-acid">.EXE</span>
+          <span className="text-ink">ARCADE</span>
+          <span className="text-acid">MY</span>
         </a>
 
         <div className="hidden items-center gap-8 font-mono text-xs uppercase tracking-[0.16em] md:flex">
