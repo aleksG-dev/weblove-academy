@@ -1,39 +1,31 @@
-import { lazy, Suspense } from 'react';
 import { Cursor } from './components/Cursor';
+import { HUD } from './components/HUD';
 import { Nav } from './components/Nav';
 import { Footer } from './components/Footer';
-import { Marquee, ScrollProgress } from './components/primitives';
+import { Marquee } from './components/primitives';
 import { Hero } from './sections/Hero';
-import { Classrooms } from './sections/Classrooms';
-import { Paths } from './sections/Paths';
-import { Showcase } from './sections/Showcase';
+import { QuestMap } from './sections/QuestMap';
+import { ClassSelect } from './sections/ClassSelect';
+import { Boss } from './sections/Boss';
 import { CTA } from './sections/CTA';
 import { useLenis } from './lib/hooks';
 import { marqueeWords } from './data/content';
-
-// Below-the-fold; carries GSAP — split it out of the initial bundle.
-const Pillars = lazy(() =>
-  import('./sections/Pillars').then((m) => ({ default: m.Pillars }))
-);
 
 export function App() {
   useLenis();
 
   return (
-    <div className="grain relative">
+    <div className="crt relative">
       <Cursor />
-      <ScrollProgress />
+      <HUD />
       <Nav />
 
       <main>
         <Hero />
         <Marquee items={marqueeWords} />
-        <Suspense fallback={<div className="min-h-[40vh]" />}>
-          <Pillars />
-        </Suspense>
-        <Classrooms />
-        <Paths />
-        <Showcase />
+        <QuestMap />
+        <ClassSelect />
+        <Boss />
         <CTA />
       </main>
 

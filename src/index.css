@@ -7,14 +7,12 @@
 }
 
 * {
-  /* tabular figures everywhere numbers appear feel more designed */
   font-feature-settings: 'cv11', 'ss01';
 }
 
 html {
   scroll-behavior: smooth;
 }
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -29,66 +27,93 @@ body,
 
 body {
   margin: 0;
-  background-color: hsl(225 18% 5%);
-  color: hsl(225 6% 96%);
+  background-color: hsl(240 7% 4%);
+  color: hsl(56 18% 95%);
   font-family: 'Inter Variable', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
-/* Custom selection (polish detail) */
 ::selection {
-  background: hsl(252 100% 72% / 0.32);
-  color: hsl(225 6% 98%);
+  background: hsl(78 92% 56% / 0.85);
+  color: hsl(240 7% 4%);
 }
 
-/* Brand-tinted scrollbar (polish detail) */
+/* Arcade scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(225 18% 5%);
+  background: hsl(240 7% 4%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(225 12% 18%);
-  border-radius: 8px;
-  border: 2px solid hsl(225 18% 5%);
+  background: hsl(240 6% 16%);
+  border-radius: 0;
+  border: 2px solid hsl(240 7% 4%);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(252 40% 40%);
+  background: hsl(78 60% 40%);
 }
 
-/* Hide native cursor only on fine-pointer (desktop); keep on touch */
+/* Hide native cursor on desktop only (reticle takes over) */
 @media (hover: hover) and (pointer: fine) {
-  .custom-cursor-active * {
+  .reticle-active * {
     cursor: none !important;
   }
 }
 
-/* Film grain overlay — free, adds analog texture */
-.grain::after {
+/* Fixed CRT layer: scanlines + vignette + subtle grain. Sits above content
+   but ignores pointer events. The single ambient flourish. */
+.crt::before {
   content: '';
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   pointer-events: none;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.18) 3px,
+    rgba(0, 0, 0, 0) 4px
+  );
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+.crt::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 120% at 50% 40%,
+    transparent 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+@media (prefers-reduced-motion: reduce) {
+  .crt::before {
+    display: none;
+  }
 }
 
-/* Reusable focus ring (accessibility polish) */
 .focus-ring:focus-visible {
-  outline: 2px solid hsl(252 100% 72%);
+  outline: 2px solid hsl(78 92% 56%);
   outline-offset: 3px;
-  border-radius: 4px;
 }
 
 .balance {
   text-wrap: balance;
 }
 
-/* Reduced-motion: neutralise transitions/animations */
+/* Dotted HUD grid background utility */
+.dotgrid {
+  background-image: radial-gradient(hsl(240 6% 16%) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

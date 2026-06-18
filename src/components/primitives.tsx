@@ -117,6 +117,59 @@ export function SplitText({
   );
 }
 
+/* --------------------------------------------------------------- Scramble */
+export function Scramble({
+  text,
+  className,
+  as = 'span',
+  delay = 0,
+}: {
+  text: string;
+  className?: string;
+  as?: 'h1' | 'h2' | 'span' | 'div';
+  delay?: number;
+}) {
+  const [out, setOut] = useState(text.replace(/[^ ]/g, ' '));
+
+  useEffect(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      setOut(text);
+      return;
+    }
+    const glyphs = '!<>-_\\/[]{}=+*^?#ABCDEFGHJKLMNPQRSTUVWXYZ0123456789';
+    const chars = Array.from(text);
+    const settle = chars.map((_, i) => delay / 16 + i * 1.7 + Math.random() * 9);
+    let tick = 0;
+    let raf = 0;
+
+    const run = () => {
+      let done = true;
+      const s = chars
+        .map((ch, i) => {
+          if (ch === ' ') return ' ';
+          if (tick >= settle[i]) return ch;
+          done = false;
+          return glyphs[Math.floor(Math.random() * glyphs.length)];
+        })
+        .join('');
+      setOut(s);
+      tick += 1;
+      if (!done) raf = requestAnimationFrame(run);
+    };
+    raf = requestAnimationFrame(run);
+    return () => cancelAnimationFrame(raf);
+  }, [text, delay]);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Tag = as as any;
+  return (
+    <Tag className={className} aria-label={text}>
+      <span aria-hidden>{out}</span>
+    </Tag>
+  );
+}
+
 /* ----------------------------------------------------------------- Reveal */
 export function Reveal({
   children,
