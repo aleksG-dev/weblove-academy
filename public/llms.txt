@@ -1,0 +1,16 @@
+# Weblove Academy
+
+> Weblove Academy is a game-shaped curriculum that takes web builders from their first AI-generated website to a recognised solo brand. It spans three pillars — Craft, Business and Compound — across fourteen classrooms and hundreds of quests covering AI website design, animation, design taste, sales, marketing, SEO/AEO and staying current.
+
+## Pillars
+- [Craft](https://weblove-academy.vercel.app/#craft): Build award-grade AI websites — AI Websites Mastery, Claude, Animations, Lovable, Backend/CMS, Design Taste, AI Imagery, Studio Sessions.
+- [Business](https://weblove-academy.vercel.app/#business): Sell, market and retain — Sales & Business, Marketing & Lead Gen, SEO & AEO, Post-Delivery & Retainers, First 10k.
+- [Compound](https://weblove-academy.vercel.app/#compound): Stay current and build a brand — AI Daily.
+
+## Paths
+- [Path A — Starting from zero](https://weblove-academy.vercel.app/#paths): AI Websites Mastery, then Claude, Animations, First 10k.
+- [Path B — Premium quality](https://weblove-academy.vercel.app/#paths): Animations, Design Taste, Studio Sessions, AI Imagery.
+- [Path C — Grow the business](https://weblove-academy.vercel.app/#paths): Sales & Business, Post-Delivery, Marketing, SEO.
+
+## Reference
+- [The 14 classrooms](https://weblove-academy.vercel.app/#classrooms): Full classroom list with levels and quest counts.
