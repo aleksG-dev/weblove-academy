@@ -186,13 +186,45 @@ export function Reveal({
   delay?: number;
   y?: number;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      setShown(true);
+      return;
+    }
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setShown(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    io.observe(el);
+    // Safety net: never let content stay hidden (e.g. after a jump-scroll).
+    const t = window.setTimeout(() => {
+      setShown(true);
+      io.disconnect();
+    }, 1600);
+    return () => {
+      io.disconnect();
+      window.clearTimeout(t);
+    };
+  }, []);
+
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.8, ease: SNAP, delay }}
+      animate={shown ? { opacity: 1, y: 0 } : { opacity: 0, y }}
+      transition={{ duration: 0.7, ease: SNAP, delay }}
     >
       {children}
     </motion.div>
