@@ -1,3 +1,4 @@
+import { MotionConfig } from 'framer-motion';
 import { Cursor } from './components/Cursor';
 import { HUD } from './components/HUD';
 import { Nav } from './components/Nav';
@@ -23,21 +24,23 @@ export function App() {
   }, []);
 
   return (
-    <div className="crt relative">
-      <Cursor />
-      <HUD />
-      <Nav />
+    <MotionConfig reducedMotion="user">
+      <div className="crt relative">
+        <Cursor />
+        <HUD />
+        <Nav />
 
-      <main>
-        <Hero />
-        <Marquee items={marqueeWords} />
-        <QuestMap />
-        <ClassSelect />
-        <Boss />
-        <CTA />
-      </main>
+        <main>
+          <Hero />
+          <Marquee items={marqueeWords} />
+          <QuestMap />
+          <ClassSelect />
+          <Boss />
+          <CTA />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </MotionConfig>
   );
 }

@@ -12,6 +12,9 @@ const miniBosses = [
 
 export function Boss() {
   const { ref, inView } = useInView<HTMLDivElement>(0.25);
+  const reduceMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   return (
     <section id="boss" className="mx-auto max-w-shell px-6 py-24 sm:px-12 sm:py-36">
@@ -22,10 +25,17 @@ export function Boss() {
           className="relative order-2 h-[340px] overflow-hidden rounded-sm border border-boss/30 bg-gradient-to-b from-boss/[0.08] to-transparent sm:h-[440px] lg:order-1"
         >
           <div className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-boss/25 blur-3xl" />
-          {inView && (
+          {inView && !reduceMotion && (
             <Suspense fallback={null}>
               <CraftScene />
             </Suspense>
+          )}
+          {reduceMotion && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="font-mono text-4xl text-boss" aria-hidden>
+                d20
+              </span>
+            </div>
           )}
           <p className="pointer-events-none absolute bottom-4 left-0 right-0 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-faint">
             roll for it · drag to spin

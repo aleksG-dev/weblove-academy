@@ -296,7 +296,7 @@ export function ScrollProgress() {
 export function Marquee({ items }: { items: string[] }) {
   const row = [...items, ...items];
   return (
-    <div className="group relative flex overflow-hidden border-y border-line py-5">
+    <div aria-hidden className="group relative flex overflow-hidden border-y border-line py-5">
       <div className="flex shrink-0 animate-marquee items-center gap-10 pr-10 group-hover:[animation-play-state:paused]">
         {row.map((w, i) => (
           <span key={i} className="flex items-center gap-10">

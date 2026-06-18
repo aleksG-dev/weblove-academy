@@ -28,13 +28,13 @@ export function Nav() {
           <span className="text-acid">MY</span>
         </a>
 
-        <div className="hidden items-center gap-8 font-mono text-xs uppercase tracking-[0.16em] md:flex">
+        <div className="hidden items-center gap-7 font-mono text-xs uppercase tracking-[0.16em] sm:flex">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               data-cursor="grow"
-              className="focus-ring text-mute transition-colors duration-300 hover:text-acid"
+              className="focus-ring inline-flex min-h-[44px] items-center text-mute transition-colors duration-300 hover:text-acid"
             >
               {l.label}
             </a>
@@ -44,7 +44,7 @@ export function Nav() {
         <Magnetic
           as="a"
           href="#start"
-          className="focus-ring rounded-sm border border-acid bg-acid px-5 py-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-base transition-colors duration-300 hover:bg-transparent hover:text-acid"
+          className="focus-ring inline-flex min-h-[44px] items-center rounded-sm border border-acid bg-acid px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-base transition-colors duration-300 hover:bg-transparent hover:text-acid"
         >
           Press Start
         </Magnetic>

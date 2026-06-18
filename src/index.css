@@ -104,9 +104,12 @@ body {
   }
 }
 
-.focus-ring:focus-visible {
+.focus-ring:focus-visible,
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid hsl(78 92% 56%);
   outline-offset: 3px;
+  border-radius: 2px;
 }
 
 .balance {
