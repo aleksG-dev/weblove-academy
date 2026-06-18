@@ -8,12 +8,9 @@ import { QuestMap } from './sections/QuestMap';
 import { ClassSelect } from './sections/ClassSelect';
 import { Boss } from './sections/Boss';
 import { CTA } from './sections/CTA';
-import { useLenis } from './lib/hooks';
 import { marqueeWords } from './data/content';
 
 export function App() {
-  useLenis();
-
   return (
     <div className="crt relative">
       <Cursor />
