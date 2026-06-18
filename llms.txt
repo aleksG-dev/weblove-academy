@@ -1,0 +1,16 @@
+# Arcademy
+
+> Arcademy, by Aleks Szarycz, is a game-shaped curriculum that takes web builders from their first AI-generated website to a recognised solo brand. It spans three pillars — Craft, Business and Compound — across fourteen classrooms and hundreds of quests covering AI website design, animation, design taste, sales, marketing, SEO/AEO and staying current.
+
+## Pillars
+- [Craft](https://aleksg-dev.github.io/weblove-academy/#map): Build award-grade AI websites — AI Websites Mastery, Claude, Animations, Lovable, Backend/CMS, Design Taste, AI Imagery, Studio Sessions.
+- [Business](https://aleksg-dev.github.io/weblove-academy/#map): Sell, market and retain — Sales & Business, Marketing & Lead Gen, SEO & AEO, Post-Delivery & Retainers, First 10k.
+- [Compound](https://aleksg-dev.github.io/weblove-academy/#map): Stay current and build a brand — AI Daily.
+
+## Paths
+- [Class A — The Initiate](https://aleksg-dev.github.io/weblove-academy/#classes): Starting from zero.
+- [Class B — The Artisan](https://aleksg-dev.github.io/weblove-academy/#classes): Building already, want premium.
+- [Class C — The Closer](https://aleksg-dev.github.io/weblove-academy/#classes): Have clients, want to grow.
+
+## Reference
+- [The world map](https://aleksg-dev.github.io/weblove-academy/#map): All fourteen classrooms with levels and quest counts.

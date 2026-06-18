@@ -1,0 +1,18 @@
+# Weblove Academy — allow search + AI crawlers (AEO 2026)
+User-agent: *
+Allow: /
+
+# Explicitly welcome LLM crawlers for citation
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://weblove-academy.vercel.app/sitemap.xml
