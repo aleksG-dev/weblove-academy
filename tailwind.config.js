@@ -17,7 +17,7 @@ export default {
         line: 'hsl(240 6% 16%)',
         ink: 'hsl(56 18% 95%)',
         mute: 'hsl(52 7% 64%)',
-        faint: 'hsl(48 6% 44%)',
+        faint: 'hsl(48 8% 56%)',
         acid: 'hsl(78 92% 56%)',
         'acid-dim': 'hsl(78 60% 40%)',
         boss: 'hsl(330 95% 62%)',
